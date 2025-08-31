@@ -10,16 +10,18 @@ Ela visa oferecer uma base robusta para criação de sistemas modulares, testáv
 ```
 TicketHub/
 ├── backend_TicketHub/
-│   ├── TicketHub.Domain/
-│   ├── TicketHub.Application/
-│   ├── TicketHub.Infrastructure/
-│   ├── TicketHub.WebAPI/
-│   ├── TicketHub.Documentation/
-│   └── tests/
-│       ├── TicketHub.UnitTests/
-│       └── TicketHub.IntegrationTests/
+│ ├── src/
+│ │ ├── TicketHub.Application/
+│ │ ├── TicketHub.Domain/
+│ │ ├── TicketHub.Infrastructure/
+│ │ ├── TicketHub.WebAPI/
+│ │ └── TicketHub.Documentation/
+│ ├── tests/
+│ │ ├── TicketHub.UnitTests/
+│ │ └── TicketHub.IntegrationTests/
+│ └── TicketHub.sln
 ├── frontend_TicketHub/
-│   └── ... (em desenvolvimento)
+│ └── ... (em desenvolvimento)
 ```
 
 ---

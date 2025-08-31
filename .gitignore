@@ -1,0 +1,19 @@
+# Build artifacts
+**/bin/
+**/obj/
+**/Debug/
+**/Release/
+
+# Rider files
+.idea/
+*.sln.iml
+
+# User-specific files
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Others
+.vscode/
+*.log

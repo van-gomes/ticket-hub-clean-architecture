@@ -5,7 +5,7 @@ Ela visa oferecer uma base robusta para criação de sistemas modulares, testáv
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```
 TicketHub/
@@ -24,7 +24,7 @@ TicketHub/
 
 ---
 
-## 🚀 Como Executar
+## Como Executar
 
 ### 1. Backend (.NET 8)
 
@@ -45,7 +45,7 @@ dotnet test tests/TicketHub.IntegrationTests
 
 ---
 
-## 🧪 Testes e Qualidade
+## Testes e Qualidade
 
 - Testes Unitários: Cobrem regras de negócio puras.
 - Testes de Integração: Cobrem serviços, repositórios e banco de dados (ex: SQLite in-memory).
@@ -55,7 +55,7 @@ dotnet test tests/TicketHub.IntegrationTests
 
 ---
 
-## 🐳 Docker (Planejado)
+## Docker (Planejado)
 
 - Backend com imagem multi-stage
 - Banco SQLite ou PostgreSQL
@@ -63,7 +63,7 @@ dotnet test tests/TicketHub.IntegrationTests
 
 ---
 
-## 🔁 CI/CD (Planejado)
+## CI/CD (Planejado)
 
 - GitHub Actions
   - Build + Testes a cada push
@@ -71,7 +71,7 @@ dotnet test tests/TicketHub.IntegrationTests
 
 ---
 
-## 🤝 Como Contribuir
+## Como Contribuir
 
 1. Faça um fork do projeto
 2. Crie uma branch: `git checkout -b feature/nova-funcionalidade`
@@ -81,6 +81,6 @@ dotnet test tests/TicketHub.IntegrationTests
 
 ---
 
-## 📄 Licença
+## Licença
 
 Este projeto está sob a licença MIT.

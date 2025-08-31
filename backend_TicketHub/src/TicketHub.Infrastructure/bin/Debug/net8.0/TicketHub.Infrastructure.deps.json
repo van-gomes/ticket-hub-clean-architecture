@@ -1,0 +1,56 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v8.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v8.0": {
+      "TicketHub.Infrastructure/1.0.0": {
+        "dependencies": {
+          "TicketHub.Application": "1.0.0",
+          "TicketHub.Domain": "1.0.0"
+        },
+        "runtime": {
+          "TicketHub.Infrastructure.dll": {}
+        }
+      },
+      "TicketHub.Application/1.0.0": {
+        "dependencies": {
+          "TicketHub.Domain": "1.0.0"
+        },
+        "runtime": {
+          "TicketHub.Application.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      },
+      "TicketHub.Domain/1.0.0": {
+        "runtime": {
+          "TicketHub.Domain.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
+      }
+    }
+  },
+  "libraries": {
+    "TicketHub.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TicketHub.Application/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "TicketHub.Domain/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}

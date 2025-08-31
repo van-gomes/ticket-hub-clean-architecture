@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "ss4Cfylxi8Q=",
+  "success": true,
+  "projectFilePath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/TicketHub/backend_TicketHub/src/TicketHub.Domain/TicketHub.Domain.csproj",
+  "expectedPackageFiles": [
+    "/home/van-gomes/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
+    "/home/van-gomes/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512"
+  ],
+  "logs": []
+}

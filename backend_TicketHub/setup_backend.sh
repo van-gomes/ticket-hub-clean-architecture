@@ -1,4 +1,9 @@
 #!/bin/bash
+set -e
+
+echo "Creating backend folder structure..."
+mkdir -p backend_TicketHub/tests
+cd backend_TicketHub
 
 echo "Creating solution TicketHub..."
 dotnet new sln -n TicketHub
@@ -11,7 +16,6 @@ dotnet new webapi    -n TicketHub.WebAPI
 dotnet new classlib -n TicketHub.Documentation
 
 echo "Creating test projects..."
-mkdir -p tests
 cd tests
 dotnet new xunit -n TicketHub.UnitTests
 dotnet new xunit -n TicketHub.IntegrationTests
@@ -43,4 +47,4 @@ dotnet add tests/TicketHub.UnitTests/TicketHub.UnitTests.csproj reference Ticket
 
 dotnet add tests/TicketHub.IntegrationTests/TicketHub.IntegrationTests.csproj reference TicketHub.WebAPI/TicketHub.WebAPI.csproj
 
-echo "Backend setup complete!"
+echo "Backend setup completed successfully."

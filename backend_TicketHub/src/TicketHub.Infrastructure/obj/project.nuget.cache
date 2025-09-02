@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "mVm542GGhss=",
+  "dgSpecHash": "uWXQMN/ilR0=",
   "success": true,
   "projectFilePath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/TicketHub/backend_TicketHub/src/TicketHub.Infrastructure/TicketHub.Infrastructure.csproj",
   "expectedPackageFiles": [
+    "/home/van-gomes/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/microsoft.netcore.app.ref/8.0.13/microsoft.netcore.app.ref.8.0.13.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/microsoft.aspnetcore.app.ref/8.0.13/microsoft.aspnetcore.app.ref.8.0.13.nupkg.sha512"
   ],

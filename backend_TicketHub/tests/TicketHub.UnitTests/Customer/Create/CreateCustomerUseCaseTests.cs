@@ -1,55 +1,57 @@
-using Moq;
+using FluentValidation.TestHelper;
+using TicketHub.Application.Validators;
 using TicketHub.Domain.Entities;
-using TicketHub.Application.UseCases;
-using TicketHub.Application.Interfaces;
-using TicketHub.Application.DTOs;
+using Xunit;
 
-public class CreateCustomerUseCaseTests
+namespace TicketHub.Tests;
+
+public class CustomerValidatorTests
 {
-    [Fact]
-    public async Task Should_Create_Customer_Successfully()
+    private readonly CustomerValidator _validator;
+
+    public CustomerValidatorTests()
     {
-        // Arrange
-        var customerRepositoryMock = new Mock<ICustomerRepository>();
-        var createCustomerUseCase = new CreateCustomerUseCase(customerRepositoryMock.Object);
+        _validator = new CustomerValidator();
+    }
 
-        var request = new CreateCustomerRequest
-        {
-            Name = "Alice",
-            Email = "alice@email.com",
-            Cpf = "12345678911"
-        };
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("A")]
+    public void InvalidName_ShouldHaveValidationError(string name)
+    {
+        var model = new Customer(name, "test@example.com", "12345678901");
+        var result = _validator.TestValidate(model);
+        result.ShouldHaveValidationErrorFor(c => c.Name);
+    }
 
-        // Act
-        var createdCustomer = await createCustomerUseCase.Execute(request);
+    [Theory]
+    [InlineData("invalidemail")]
+    [InlineData("missing@dot")]
+    [InlineData("@missingusername.com")]
+    public void InvalidEmail_ShouldHaveValidationError(string email)
+    {
+        var model = new Customer("Valid Name", email, "12345678901");
+        var result = _validator.TestValidate(model);
+        result.ShouldHaveValidationErrorFor(c => c.Email);
+    }
 
-        // Assert
-        Assert.Equal(request.Name, createdCustomer.Name);
-        Assert.Equal(request.Email, createdCustomer.Email);
-        Assert.Equal(request.Cpf, createdCustomer.Cpf);
-        customerRepositoryMock.Verify(repo => repo.SaveAsync(It.IsAny<Customer>()), Times.Once);
+    [Theory]
+    [InlineData(null)]
+    [InlineData("")]
+    [InlineData("1234567")]
+    public void InvalidCpf_ShouldHaveValidationError(string cpf)
+    {
+        var model = new Customer("Valid Name", "test@example.com", cpf);
+        var result = _validator.TestValidate(model);
+        result.ShouldHaveValidationErrorFor(c => c.Cpf);
     }
 
     [Fact]
-    public async Task Should_Throw_Exception_When_Name_Is_Empty()
+    public void ValidCustomer_ShouldNotHaveValidationErrors()
     {
-        // Arrange
-        var customerRepositoryMock = new Mock<ICustomerRepository>();
-        var createCustomerUseCase = new CreateCustomerUseCase(customerRepositoryMock.Object);
-
-        var request = new CreateCustomerRequest
-        {
-            Name = "",
-            Email = "alice@email.com",
-            Cpf = "12345678911"
-        };
-
-        // Act & Assert
-        await Assert.ThrowsAsync<FluentValidation.ValidationException>(async () =>
-        {
-            await createCustomerUseCase.Execute(request);
-        });
-
-        customerRepositoryMock.Verify(repo => repo.SaveAsync(It.IsAny<Customer>()), Times.Never);
+        var model = new Customer("Valid Name", "test@example.com", "12345678901");
+        var result = _validator.TestValidate(model);
+        result.ShouldNotHaveAnyValidationErrors();
     }
 }

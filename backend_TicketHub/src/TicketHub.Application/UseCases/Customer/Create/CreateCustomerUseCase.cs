@@ -1,34 +1,21 @@
-using TicketHub.Domain.Entities;
-using TicketHub.Application.Interfaces;
-using TicketHub.Application.DTOs;
-using TicketHub.Application.Validators;
 using FluentValidation;
+using TicketHub.Application.Validators;
+using TicketHub.Domain.Entities;
 
 namespace TicketHub.Application.UseCases;
 
 public class CreateCustomerUseCase
 {
-    private readonly ICustomerRepository _repository;
-    private readonly CreateCustomerRequestValidator _validator;
-
-    public CreateCustomerUseCase(ICustomerRepository repository)
+    public Customer Execute(string name, string email, string cpf)
     {
-        _repository = repository;
-        _validator = new CreateCustomerRequestValidator();
-    }
+        var customer = new Customer(name, email, cpf);
 
-    public async Task<Customer> Execute(CreateCustomerRequest request)
-    {
-        var validationResult = _validator.Validate(request);
+        var validator = new CustomerValidator();
+        var validationResult = validator.Validate(customer);
 
         if (!validationResult.IsValid)
-        {
-            var errors = string.Join(", ", validationResult.Errors.Select(e => e.ErrorMessage));
-            throw new ValidationException(errors);
-        }
+            throw new ValidationException(validationResult.Errors);
 
-        var customer = new Customer(request.Name, request.Email, request.Cpf);
-        await _repository.SaveAsync(customer);
         return customer;
     }
 }

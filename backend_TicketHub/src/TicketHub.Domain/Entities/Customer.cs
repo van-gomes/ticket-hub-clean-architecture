@@ -1,38 +1,26 @@
-﻿namespace TicketHub.Domain.Entities
+﻿namespace TicketHub.Domain.Entities;
+
+public class Customer
 {
-    public class Customer
+    public Guid Id { get; private set; } = Guid.NewGuid();
+    public string Name { get; private set; }
+    public string Email { get; private set; }
+    public string Cpf { get; private set; }
+
+    public Customer(string name, string email, string cpf)
     {
-        public string Name { get; private set; }
-        public string Email { get; private set; }
-        public string Cpf { get; private set; }
+        Name = name;
+        Email = email;
+        Cpf = cpf;
+    }
+    
+    public void ChangeEmail(string newEmail)
+    {
+        Email = newEmail;
+    }
 
-        public Customer(string customerName, string customerEmail, string customerCpf)
-        {
-            if (string.IsNullOrWhiteSpace(customerName))
-                throw new ArgumentException("Name cannot be empty.");
-
-            if (!IsValidEmail(customerEmail))
-                throw new ArgumentException("Email is not valid.");
-
-            if (string.IsNullOrWhiteSpace(customerCpf))
-                throw new ArgumentException("CPF cannot be empty.");
-
-            Name = customerName;
-            Email = customerEmail;
-            Cpf = customerCpf;
-        }
-
-        private bool IsValidEmail(string emailToValidate)
-        {
-            try
-            {
-                var emailAddress = new System.Net.Mail.MailAddress(emailToValidate);
-                return emailAddress.Address == emailToValidate;
-            }
-            catch
-            {
-                return false;
-            }
-        }
+    public void ChangeName(string newName)
+    {
+        Name = newName;
     }
 }

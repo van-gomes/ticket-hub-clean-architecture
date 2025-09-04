@@ -1,7 +1,6 @@
 using FluentValidation.TestHelper;
 using TicketHub.Application.Validators;
 using TicketHub.Domain.Entities;
-using Xunit;
 
 namespace TicketHub.Tests;
 

@@ -1,27 +1,24 @@
 using FluentValidation;
-using TicketHub.Application.Validators.Common;
-using TicketHub.Domain.Entities;
+using TicketHub.Application.DTOs;
 
-namespace TicketHub.Application.Validators;
-
-public class CustomerValidator : AbstractValidator<Customer>
+namespace TicketHub.Application.Validators
 {
-    public CustomerValidator()
+    public class CustomerValidator : AbstractValidator<CreateCustomerRequest>
     {
-        RuleFor(c => c.Name)
-            .NotEmpty()
-            .MinimumLength(3)
-            .WithMessage("Name must be at least 3 characters.");
+        public CustomerValidator()
+        {
+            RuleFor(c => c.Name)
+                .NotEmpty().WithMessage("Name is required.")
+                .MinimumLength(3).WithMessage("Name must be at least 3 characters long.");
 
-        RuleFor(c => c.Email)
-            .Must(EmailValidator.IsValid)
-            .WithMessage("Email format is invalid.");
+            RuleFor(c => c.Email)
+                .NotEmpty().WithMessage("Email is required.")
+                .EmailAddress().WithMessage("Email must be a valid email address.");
 
-        RuleFor(c => c.Cpf)
-            .Must(BeValidCpf)
-            .WithMessage("CPF must be 11 digits.");
+            RuleFor(c => c.Cpf)
+                .NotEmpty().WithMessage("CPF is required.")
+                .Length(11).WithMessage("CPF must have exactly 11 digits.")
+                .Matches(@"^\d{11}$").WithMessage("CPF must contain only numbers.");
+        }
     }
-
-    private bool BeValidCpf(string cpf) =>
-        !string.IsNullOrWhiteSpace(cpf) && cpf.Length == 11;
 }

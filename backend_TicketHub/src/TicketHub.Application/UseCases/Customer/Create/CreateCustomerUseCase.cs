@@ -18,4 +18,6 @@ public class CreateCustomerUseCase
         var customer = new Customer(request.Name, request.Email, request.Cpf);
         return customer;
     }
+
+  
 }

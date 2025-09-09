@@ -1,8 +1,7 @@
-
 using Microsoft.AspNetCore.Mvc;
 using FluentValidation;
 using TicketHub.Application.DTOs;
-using TicketHub.Application.UseCases;
+using TicketHub.Application.UseCases.CustomerUseCases;
 
 namespace TicketHub.WebAPI.Controllers;
 
@@ -17,7 +16,7 @@ public class CustomersController : ControllerBase
 
         try
         {
-            var customer = useCase.Execute(request);
+            var customer = CreateCustomerUseCase.Execute(request);
             return Created("", customer);
         }
         catch (ValidationException ex)

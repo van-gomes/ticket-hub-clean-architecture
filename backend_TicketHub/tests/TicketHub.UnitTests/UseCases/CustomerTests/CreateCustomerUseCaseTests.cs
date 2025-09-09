@@ -2,7 +2,7 @@ using FluentValidation.TestHelper;
 using TicketHub.Application.DTOs;
 using TicketHub.Application.Validators;
 
-namespace TicketHub.Tests;
+namespace TicketHub.UnitTests.UseCases.CustomerTests;
 
 public class CustomerValidatorTests
 {

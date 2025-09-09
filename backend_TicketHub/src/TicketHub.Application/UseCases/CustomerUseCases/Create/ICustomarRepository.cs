@@ -5,6 +5,6 @@ namespace TicketHub.Application.Interfaces;
 
 public interface ICustomerRepository
 {
-    Task<Customer?> GetByIdAsync(Guid id);
-    Task AddAsync(Customer customer);
+    Task<CustomerEntity?> GetByIdAsync(Guid id);
+    Task AddAsync(CustomerEntity customerEntity);
 }

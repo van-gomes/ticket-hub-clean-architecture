@@ -1,5 +1,4 @@
 using TicketHub.Domain.Models;
-using TicketHub.Domain.Models;
 
 namespace TicketHub.Application.Interfaces;
 

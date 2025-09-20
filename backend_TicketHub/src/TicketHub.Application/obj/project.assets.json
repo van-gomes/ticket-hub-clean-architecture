@@ -61,11 +61,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/TicketHub/backend_TicketHub/src/TicketHub.Application/TicketHub.Application.csproj",
+      "projectUniqueName": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/ticket-hub-clean-architecture/backend_TicketHub/src/TicketHub.Application/TicketHub.Application.csproj",
       "projectName": "TicketHub.Application",
-      "projectPath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/TicketHub/backend_TicketHub/src/TicketHub.Application/TicketHub.Application.csproj",
+      "projectPath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/ticket-hub-clean-architecture/backend_TicketHub/src/TicketHub.Application/TicketHub.Application.csproj",
       "packagesPath": "/home/van-gomes/.nuget/packages/",
-      "outputPath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/TicketHub/backend_TicketHub/src/TicketHub.Application/obj/",
+      "outputPath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/ticket-hub-clean-architecture/backend_TicketHub/src/TicketHub.Application/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/van-gomes/.nuget/NuGet/NuGet.Config"
@@ -80,8 +80,8 @@
         "net8.0": {
           "targetAlias": "net8.0",
           "projectReferences": {
-            "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/TicketHub/backend_TicketHub/src/TicketHub.Domain/TicketHub.Domain.csproj": {
-              "projectPath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/TicketHub/backend_TicketHub/src/TicketHub.Domain/TicketHub.Domain.csproj"
+            "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/ticket-hub-clean-architecture/backend_TicketHub/src/TicketHub.Domain/TicketHub.Domain.csproj": {
+              "projectPath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/ticket-hub-clean-architecture/backend_TicketHub/src/TicketHub.Domain/TicketHub.Domain.csproj"
             }
           }
         }

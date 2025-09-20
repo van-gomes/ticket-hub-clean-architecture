@@ -21,6 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\TicketHub.Domain\TicketHub.Domain.csproj" />
+    <ProjectReference Include="..\..\src\TicketHub.Infrastructure\TicketHub.Infrastructure.csproj" />
     <ProjectReference Include="..\..\TicketHub.WebAPI\TicketHub.WebAPI.csproj" />
   </ItemGroup>
 

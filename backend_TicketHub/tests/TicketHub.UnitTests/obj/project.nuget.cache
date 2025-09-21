@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "c+tpuibCaeQ=",
+  "dgSpecHash": "Iin4zKPZGTQ=",
   "success": true,
-  "projectFilePath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/TicketHub/backend_TicketHub/tests/TicketHub.UnitTests/TicketHub.UnitTests.csproj",
+  "projectFilePath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/ticket-hub-clean-architecture/backend_TicketHub/tests/TicketHub.UnitTests/TicketHub.UnitTests.csproj",
   "expectedPackageFiles": [
     "/home/van-gomes/.nuget/packages/castle.core/5.1.1/castle.core.5.1.1.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/coverlet.collector/6.0.0/coverlet.collector.6.0.0.nupkg.sha512",

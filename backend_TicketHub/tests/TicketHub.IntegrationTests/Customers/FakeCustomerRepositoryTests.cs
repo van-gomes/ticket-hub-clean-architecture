@@ -1,36 +1,52 @@
+using FluentValidation;
+using Moq;
+using TicketHub.Application.DTOs;
+using TicketHub.Application.Interfaces;
+using TicketHub.Application.UseCases.CustomerUseCases;
+using TicketHub.Application.Validators;
 using TicketHub.Domain.Models;
-using TicketHub.Infrastructure.Persistence.Repositories;
 
 namespace Application.IntegrationTests.Customers
 {
-    public class FakeCustomerRepositoryTests
+    public class CreateCustomerUseCaseTests
     {
-        private readonly FakeCustomerRepository _repository;
-
-        public FakeCustomerRepositoryTests()
+        [Fact]
+        public void Should_ThrowValidationException_When_CpfIsInvalid()
         {
-            _repository = new FakeCustomerRepository();
+            // Arrange
+            var request = new CreateCustomerRequest
+            {
+                Name = "Maria",
+                Email = "maria@email.com",
+                Cpf = "123456789" // CPF inválido (9 dígitos)
+            };
+
+            // Act & Assert
+            var exception = Assert.Throws<ValidationException>(() =>
+                CreateCustomerUseCase.Execute(request));
+
+            Assert.Contains("CPF must have exactly 11 digits", exception.Message);
         }
 
         [Fact]
-        public async Task CreateAsync_ShouldAddAndReturnCustomer()
+        public void Should_CreateCustomer_When_RequestIsValid()
         {
             // Arrange
-            var customer = new CustomerEntity
+            var request = new CreateCustomerRequest
             {
                 Name = "João da Silva",
-                Email = "joao@email.com"
+                Email = "joao@email.com",
+                Cpf = "12345678901" // CPF válido (11 dígitos numéricos)
             };
 
             // Act
-            var created = await _repository.CreateAsync(customer);
-            var fetched = await _repository.GetByIdAsync(created.Id);
+            var customer = CreateCustomerUseCase.Execute(request);
 
             // Assert
-            Assert.NotNull(created.Id);
-            Assert.NotNull(fetched);
-            Assert.Equal("João da Silva", fetched?.Name);
-            Assert.Equal("joao@email.com", fetched?.Email);
+            Assert.NotEqual(Guid.Empty, customer.Id); // O ID deve ser gerado
+            Assert.Equal(request.Name, customer.Name);
+            Assert.Equal(request.Email, customer.Email);
+            Assert.Equal(request.Cpf, customer.Cpf);
         }
     }
 }

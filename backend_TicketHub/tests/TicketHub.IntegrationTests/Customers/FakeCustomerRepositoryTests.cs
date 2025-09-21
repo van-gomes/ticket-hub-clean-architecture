@@ -1,10 +1,6 @@
 using FluentValidation;
-using Moq;
 using TicketHub.Application.DTOs;
-using TicketHub.Application.Interfaces;
 using TicketHub.Application.UseCases.CustomerUseCases;
-using TicketHub.Application.Validators;
-using TicketHub.Domain.Models;
 
 namespace Application.IntegrationTests.Customers
 {

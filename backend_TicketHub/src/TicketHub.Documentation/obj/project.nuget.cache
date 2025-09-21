@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "uAR2cxRI+Vw=",
+  "dgSpecHash": "76WFbigRRfc=",
   "success": true,
-  "projectFilePath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/TicketHub/backend_TicketHub/src/TicketHub.Documentation/TicketHub.Documentation.csproj",
+  "projectFilePath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/ticket-hub-clean-architecture/backend_TicketHub/src/TicketHub.Documentation/TicketHub.Documentation.csproj",
   "expectedPackageFiles": [
     "/home/van-gomes/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/microsoft.aspnetcore.openapi/8.0.13/microsoft.aspnetcore.openapi.8.0.13.nupkg.sha512",

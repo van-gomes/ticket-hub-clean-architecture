@@ -1,7 +1,10 @@
+using System;
+using System.Threading.Tasks;
 using Moq;
 using TicketHub.Application.Interfaces;
 using TicketHub.Application.UseCases.Customer.GetById;
 using TicketHub.Domain.Models;
+using Xunit;
 
 namespace TicketHub.UnitTests.UseCases.CustomerTests;
 

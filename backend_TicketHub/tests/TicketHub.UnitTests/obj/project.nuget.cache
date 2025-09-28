@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "0CgOB1oyXBA=",
+  "dgSpecHash": "UMxPa4YVNis=",
   "success": true,
   "projectFilePath": "/home/van-gomes/Documentos/MBA _FullCycle/arquitetura_Hexagonal _e_ Clean_ Architecture/hexagonal_na_pratica/project/ticket-hub-clean-architecture/backend_TicketHub/tests/TicketHub.UnitTests/TicketHub.UnitTests.csproj",
   "expectedPackageFiles": [
+    "/home/van-gomes/.nuget/packages/castle.core/5.1.0/castle.core.5.1.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/fluentvalidation/12.0.0/fluentvalidation.12.0.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/microsoft.codecoverage/17.8.0/microsoft.codecoverage.17.8.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/microsoft.net.test.sdk/17.8.0/microsoft.net.test.sdk.17.8.0.nupkg.sha512",
@@ -38,6 +39,7 @@
     "/home/van-gomes/.nuget/packages/system.console/4.3.0/system.console.4.3.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/system.diagnostics.debug/4.3.0/system.diagnostics.debug.4.3.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/system.diagnostics.diagnosticsource/4.3.0/system.diagnostics.diagnosticsource.4.3.0.nupkg.sha512",
+    "/home/van-gomes/.nuget/packages/system.diagnostics.eventlog/6.0.0/system.diagnostics.eventlog.6.0.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/system.diagnostics.tools/4.3.0/system.diagnostics.tools.4.3.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/system.diagnostics.tracing/4.3.0/system.diagnostics.tracing.4.3.0.nupkg.sha512",
     "/home/van-gomes/.nuget/packages/system.globalization/4.3.0/system.globalization.4.3.0.nupkg.sha512",

@@ -14,20 +14,18 @@ public class CreatePartnerUseCase
 
     public async Task<CreatePartnerResponse> ExecuteAsync(CreatePartnerInput input)
     {
-       
-        var entity = new PartnerEntity(
-            Guid.NewGuid(),
-            input.Name,
-            input.Document
-        );
+        // Cria a entidade passando os parâmetros no construtor correto
+        var entity = new PartnerEntity(Guid.NewGuid(), input.Name, input.Document);
 
-        var result = await _repository.CreateAsync(entity);
+        // Salva no repositório
+        var created = await _repository.CreateAsync(entity);
 
+        // Retorna DTO de resposta
         return new CreatePartnerResponse
         {
-            Id = result.Id,
-            Name = result.Name,
-            Document = result.Document
+            Id = created.Id,
+            Name = created.Name,
+            Document = created.Document
         };
     }
 }

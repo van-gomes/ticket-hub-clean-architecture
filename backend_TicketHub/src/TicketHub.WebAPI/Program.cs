@@ -9,6 +9,10 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// builder.Services.AddScoped<IPartnerRepository, PartnerRepository>();
+// builder.Services.AddScoped<CreatePartnerUseCase>();
+// builder.Services.AddScoped<GetPartnerByIdUseCase>();
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

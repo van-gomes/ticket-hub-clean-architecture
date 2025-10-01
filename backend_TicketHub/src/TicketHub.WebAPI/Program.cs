@@ -1,3 +1,10 @@
+using TicketHub.Application.Interfaces;
+using TicketHub.Application.UseCases.CustomerUseCases.GetAll;
+using TicketHub.Application.UseCases.CustomerUseCases.GetById;
+using TicketHub.Application.UseCases.PartnerUseCases.GetById;
+using TicketHub.Application.UseCases.PartnerUseCases.Create;
+using TicketHub.Infrastructure.Persistence.Repositories;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,11 +14,19 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
 
-// builder.Services.AddScoped<IPartnerRepository, PartnerRepository>();
-// builder.Services.AddScoped<CreatePartnerUseCase>();
+// Repositories
+builder.Services.AddScoped<ICustomerRepository, FakeCustomerRepository>();
+//builder.Services.AddScoped<IPartnerRepository, FakePartnerRepository>();
+
+// UseCases - Customer
+builder.Services.AddScoped<GetAllCustomersUseCase>();
+builder.Services.AddScoped<GetCustomerByIdUseCase>();
+
+// UseCases - Partner
+// builder.Services.AddScoped<GetAllPartnersUseCase>();
 // builder.Services.AddScoped<GetPartnerByIdUseCase>();
+// builder.Services.AddScoped<CreatePartnerUseCase>();
 
 var app = builder.Build();
 

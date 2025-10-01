@@ -18,5 +18,11 @@ namespace TicketHub.Infrastructure.Persistence.Repositories
             _customers.Add(customer);
             return Task.CompletedTask;
         }
+
+        public Task<List<CustomerEntity>> GetAllAsync()
+        {
+            return Task.FromResult(_customers.ToList());
+        }
     }
 }
+        

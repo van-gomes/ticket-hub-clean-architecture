@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TicketHub.Documentation")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+53f856ff77c5d1b6ecdf319d60e860faadd58f4e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+9c022cafccc34d28f5783d6601d7f8e41d25c343")]
 [assembly: System.Reflection.AssemblyProductAttribute("TicketHub.Documentation")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TicketHub.Documentation")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

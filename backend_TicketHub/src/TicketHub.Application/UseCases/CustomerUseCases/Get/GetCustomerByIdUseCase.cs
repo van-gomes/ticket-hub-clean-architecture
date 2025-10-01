@@ -1,7 +1,7 @@
 using TicketHub.Application.DTOs;
 using TicketHub.Application.Interfaces;
 
-namespace TicketHub.Application.UseCases.Customer.GetById;
+namespace TicketHub.Application.UseCases.CustomerUseCases.GetById;
 
 public class GetCustomerByIdUseCase
 {
@@ -15,17 +15,8 @@ public class GetCustomerByIdUseCase
     public async Task<GetCustomerByIdResponse?> ExecuteAsync(Guid id)
     {
         var customer = await _repository.GetByIdAsync(id);
-        if (customer == null)
-        {
-            return null;
-        }
+        if (customer is null) return null;
 
-        return new GetCustomerByIdResponse
-        {
-            Id = customer.Id,
-            Name = customer.Name,
-            Email = customer.Email,
-            Cpf = customer.Cpf
-        };
+        return new GetCustomerByIdResponse(customer.Id, customer.Name, customer.Email, customer.Cpf);
     }
 }

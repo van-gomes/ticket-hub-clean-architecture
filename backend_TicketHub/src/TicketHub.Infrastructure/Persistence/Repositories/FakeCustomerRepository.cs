@@ -3,7 +3,7 @@ using TicketHub.Domain.Models;
 
 namespace TicketHub.Infrastructure.Persistence.Repositories
 {
-    public class FakeCustomerRepository : ICustomerRepository
+    public class FakeCustomerRepository : ICustomarRepository
     {
         private readonly List<CustomerEntity> _customers = new();
 

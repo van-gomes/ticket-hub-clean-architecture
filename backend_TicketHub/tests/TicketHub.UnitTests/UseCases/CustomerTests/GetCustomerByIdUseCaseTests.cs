@@ -20,7 +20,7 @@ public class GetCustomerByIdUseCaseTests
         var expectedCustomer = new CustomerEntity("Nome Teste", "teste@email.com", "123.456.789-00");
         typeof(CustomerEntity).GetProperty("Id")?.SetValue(expectedCustomer, customerId);
 
-        var mockRepository = new Mock<ICustomerRepository>();
+        var mockRepository = new Mock<ICustomarRepository>();
         mockRepository.Setup(r => r.GetByIdAsync(customerId)).ReturnsAsync(expectedCustomer);
 
         var useCase = new GetCustomerByIdUseCase(mockRepository.Object);
@@ -42,7 +42,7 @@ public class GetCustomerByIdUseCaseTests
         // Arrange
         var customerId = Guid.NewGuid();
 
-        var mockRepository = new Mock<ICustomerRepository>();
+        var mockRepository = new Mock<ICustomarRepository>();
         mockRepository.Setup(r => r.GetByIdAsync(customerId)).ReturnsAsync((CustomerEntity?)null);
 
         var useCase = new GetCustomerByIdUseCase(mockRepository.Object);
@@ -63,7 +63,7 @@ public class GetCustomerByIdUseCaseTests
 
         var customersList = new List<CustomerEntity> { customer1, customer2 };
 
-        var mockRepository = new Mock<ICustomerRepository>();
+        var mockRepository = new Mock<ICustomarRepository>();
         mockRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(customersList);
 
         var useCase = new GetAllCustomersUseCase(mockRepository.Object);
@@ -81,7 +81,7 @@ public class GetCustomerByIdUseCaseTests
     public async Task ExecuteAsync_ShouldReturnEmptyList_WhenNoCustomers()
     {
         // Arrange
-        var mockRepository = new Mock<ICustomerRepository>();
+        var mockRepository = new Mock<ICustomarRepository>();
         mockRepository.Setup(r => r.GetAllAsync()).ReturnsAsync(new List<CustomerEntity>());
 
         var useCase = new GetAllCustomersUseCase(mockRepository.Object);

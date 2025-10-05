@@ -5,9 +5,9 @@ namespace TicketHub.Application.UseCases.CustomerUseCases.GetById;
 
 public class GetCustomerByIdUseCase
 {
-    private readonly ICustomerRepository _repository;
+    private readonly  ICustomarRepository _repository;
 
-    public GetCustomerByIdUseCase(ICustomerRepository repository)
+    public GetCustomerByIdUseCase(ICustomarRepository repository)
     {
         _repository = repository;
     }

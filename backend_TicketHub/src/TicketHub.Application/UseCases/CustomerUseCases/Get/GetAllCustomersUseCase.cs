@@ -5,9 +5,9 @@ namespace TicketHub.Application.UseCases.CustomerUseCases.GetAll;
 
 public class GetAllCustomersUseCase
 {
-    private readonly ICustomerRepository _repository;
+    private readonly ICustomarRepository _repository;
 
-    public GetAllCustomersUseCase(ICustomerRepository repository)
+    public GetAllCustomersUseCase(ICustomarRepository repository)
     {
         _repository = repository;
     }

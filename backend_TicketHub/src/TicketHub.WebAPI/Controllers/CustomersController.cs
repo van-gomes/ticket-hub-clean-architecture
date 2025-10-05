@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using FluentValidation;
 using TicketHub.Application.DTOs;
 using TicketHub.Application.UseCases.CustomerUseCases;
+using TicketHub.Application.UseCases.CustomerUseCases.Create;
 using TicketHub.Application.UseCases.CustomerUseCases.GetAll;
 using TicketHub.Application.UseCases.CustomerUseCases.GetById;
 
@@ -11,24 +12,26 @@ namespace TicketHub.WebAPI.Controllers;
 [Route("customers")]
 public class CustomersController : ControllerBase
 {
+    private readonly CreateCustomerUseCase _createCustomerUseCase;
     private readonly GetAllCustomersUseCase _getAllCustomersUseCase;
     private readonly GetCustomerByIdUseCase _getCustomerByIdUseCase;
-    
-    public CustomersController(GetAllCustomersUseCase getAllCustomersUseCase,
+
+    public CustomersController(
+        CreateCustomerUseCase createCustomerUseCase,
+        GetAllCustomersUseCase getAllCustomersUseCase,
         GetCustomerByIdUseCase getCustomerByIdUseCase)
     {
+        _createCustomerUseCase = createCustomerUseCase;
         _getAllCustomersUseCase = getAllCustomersUseCase;
         _getCustomerByIdUseCase = getCustomerByIdUseCase;
     }
 
     [HttpPost]
-    public IActionResult Create([FromBody] CreateCustomerRequest request)
+    public async Task<IActionResult> Create([FromBody] CreateCustomerRequest request)
     {
-        var useCase = new CreateCustomerUseCase();
-
         try
         {
-            var customer = CreateCustomerUseCase.Execute(request);
+            var customer = await _createCustomerUseCase.ExecuteAsync(request);
             return Created("", customer);
         }
         catch (ValidationException ex)
@@ -37,7 +40,7 @@ public class CustomersController : ControllerBase
             return UnprocessableEntity(new { Errors = errors });
         }
     }
-    
+
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {

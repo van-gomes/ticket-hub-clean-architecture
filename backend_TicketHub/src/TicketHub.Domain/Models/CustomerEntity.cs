@@ -2,7 +2,7 @@
 
 public class CustomerEntity
 {
-    public Guid Id { get; private set; } // ✅ Chave primária exigida pelo EF
+    public Guid Id { get; private set; } // Chave primária exigida pelo EF
     public string Name { get; private set; }
     public string Email { get; private set; }
     public string Cpf { get; private set; }

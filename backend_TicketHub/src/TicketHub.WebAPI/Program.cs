@@ -1,8 +1,7 @@
 using TicketHub.Application.Interfaces;
+using TicketHub.Application.UseCases.CustomerUseCases.Create;
 using TicketHub.Application.UseCases.CustomerUseCases.GetAll;
 using TicketHub.Application.UseCases.CustomerUseCases.GetById;
-using TicketHub.Application.UseCases.PartnerUseCases.GetById;
-using TicketHub.Application.UseCases.PartnerUseCases.Create;
 using TicketHub.Infrastructure.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -15,11 +14,17 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 
-// Repositories
-builder.Services.AddScoped<ICustomerRepository, FakeCustomerRepository>();
-//builder.Services.AddScoped<IPartnerRepository, FakePartnerRepository>();
+// Adiciona serviços MVC e Swagger
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
-// UseCases - Customer
+// Aqui estão os registros necessários de injeção
+//builder.Services.AddScoped<ICustomarRepository, FakeCustomerRepository>();
+
+builder.Services.AddSingleton<ICustomarRepository, FakeCustomerRepository>();
+
+builder.Services.AddScoped<CreateCustomerUseCase>();
 builder.Services.AddScoped<GetAllCustomersUseCase>();
 builder.Services.AddScoped<GetCustomerByIdUseCase>();
 

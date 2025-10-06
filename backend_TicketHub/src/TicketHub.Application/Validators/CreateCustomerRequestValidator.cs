@@ -7,16 +7,16 @@ public class CreateCustomerRequestValidator : AbstractValidator<CreateCustomerRe
 {
     public CreateCustomerRequestValidator()
     {
-        RuleFor(c => c.Name)
-            .NotEmpty()
-            .WithMessage("Name is required.");
+        RuleFor(x => x.Name)
+            .NotEmpty().WithMessage("Name is required.")
+            .MinimumLength(3).WithMessage("Name must be at least 3 characters long.");
 
-        RuleFor(c => c.Email)
-            .NotEmpty()
-            .WithMessage("Email is required.");
+        RuleFor(x => x.Email)
+            .NotEmpty().WithMessage("Email is required.")
+            .EmailAddress().WithMessage("Invalid email format.");
 
-        RuleFor(c => c.Cpf)
-            .NotEmpty()
-            .WithMessage("CPF is required.");
+        RuleFor(x => x.Cpf)
+            .NotEmpty().WithMessage("CPF is required.")
+            .Matches(@"^\d{11}$").WithMessage("CPF must have exactly 11 digits");
     }
 }

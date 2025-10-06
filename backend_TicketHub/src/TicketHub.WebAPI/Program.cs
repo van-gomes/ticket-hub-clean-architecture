@@ -2,40 +2,34 @@ using TicketHub.Application.Interfaces;
 using TicketHub.Application.UseCases.CustomerUseCases.Create;
 using TicketHub.Application.UseCases.CustomerUseCases.GetAll;
 using TicketHub.Application.UseCases.CustomerUseCases.GetById;
+using TicketHub.Application.UseCases.PartnerUseCases.Create;
+using TicketHub.Application.UseCases.PartnerUseCases.GetById;
 using TicketHub.Infrastructure.Persistence.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
-
-builder.Services.AddControllers();
-builder.Services.AddEndpointsApiExplorer();
-
-// Adiciona serviços MVC e Swagger
+// Swagger e Controllers
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-// Aqui estão os registros necessários de injeção
-//builder.Services.AddScoped<ICustomarRepository, FakeCustomerRepository>();
-
+// Repositórios
 builder.Services.AddSingleton<ICustomarRepository, FakeCustomerRepository>();
+builder.Services.AddSingleton<IPartnerRepository, FakePartnerRepository>();
 
+// UseCases - Customer
 builder.Services.AddScoped<CreateCustomerUseCase>();
 builder.Services.AddScoped<GetAllCustomersUseCase>();
 builder.Services.AddScoped<GetCustomerByIdUseCase>();
 
 // UseCases - Partner
-// builder.Services.AddScoped<GetAllPartnersUseCase>();
-// builder.Services.AddScoped<GetPartnerByIdUseCase>();
-// builder.Services.AddScoped<CreatePartnerUseCase>();
+//builder.Services.AddScoped<CreatePartnerUseCase>();
+//builder.Services.AddScoped<GetAllPartnersUseCase>();
+//builder.Services.AddScoped<GetPartnerByIdUseCase>();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Pipeline HTTP
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
@@ -43,17 +37,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-var summaries = new[]
-{
-    "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-};
-
-app.MapControllers(); 
-
+app.UseAuthorization();
+app.MapControllers();
 app.Run();
-
-record WeatherForecast(DateOnly Date, int TemperatureC, string? Summary)
-{
-    public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
-}

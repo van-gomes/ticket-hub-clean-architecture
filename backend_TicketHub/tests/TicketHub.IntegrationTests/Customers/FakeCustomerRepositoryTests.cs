@@ -24,7 +24,7 @@ namespace Application.IntegrationTests.Customers
             {
                 Name = "Maria",
                 Email = "maria@email.com",
-                Cpf = "123456789" // CPF inválido (9 dígitos)
+                Cpf = "123456789"
             };
 
             // Act & Assert
@@ -43,7 +43,7 @@ namespace Application.IntegrationTests.Customers
             {
                 Name = "João da Silva",
                 Email = "joao@email.com",
-                Cpf = "12345678901" // CPF válido
+                Cpf = "12345678901"
             };
 
             // Act

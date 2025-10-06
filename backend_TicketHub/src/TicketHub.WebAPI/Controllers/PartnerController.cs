@@ -5,7 +5,7 @@ using TicketHub.Application.UseCases.PartnerUseCases.GetById;
 namespace TicketHub.WebAPI.Controllers;
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("partners")]
 public class PartnerController : ControllerBase
 {
     private readonly CreatePartnerUseCase _createUseCase;
@@ -21,7 +21,7 @@ public class PartnerController : ControllerBase
         _getByIdUseCase = getByIdUseCase;
         _getAllUseCase = getAllUseCase;
     }
-    
+
     [HttpPost]
     public async Task<IActionResult> Create([FromBody] CreatePartnerRequest request)
     {
@@ -39,7 +39,7 @@ public class PartnerController : ControllerBase
 
         return Ok(result);
     }
-    
+
     [HttpGet]
     public async Task<IActionResult> GetAll()
     {

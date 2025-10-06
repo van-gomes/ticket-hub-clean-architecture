@@ -23,9 +23,9 @@ builder.Services.AddScoped<GetAllCustomersUseCase>();
 builder.Services.AddScoped<GetCustomerByIdUseCase>();
 
 // UseCases - Partner
-//builder.Services.AddScoped<CreatePartnerUseCase>();
-//builder.Services.AddScoped<GetAllPartnersUseCase>();
-//builder.Services.AddScoped<GetPartnerByIdUseCase>();
+builder.Services.AddScoped<CreatePartnerUseCase>();
+builder.Services.AddScoped<GetAllPartnersUseCase>();
+builder.Services.AddScoped<GetPartnerByIdUseCase>();
 
 var app = builder.Build();
 
